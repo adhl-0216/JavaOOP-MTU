@@ -15,26 +15,25 @@ public class NumbersMenu {
                 int wNum;
                 wNum = line.nextInt();
                 iter++;
-                System.out.println("What would you like to do?\n" +
-                        "1. Determine if the number is odd or even\n" +
-                        "2. Find the factorial of the number\n" +
-                        "3. Quit the program");
+                System.out.println("""
+                        What would you like to do?
+                        1. Determine if the number is odd or even
+                        2. Find the factorial of the number
+                        3. Quit the program""");
                 int response;
                 response = line.nextInt();
 
-                switch (response){
-                    case 1:
-                        oddEven(wNum);
-                        continue;
-                    case 2:
-                        System.out.println("The factorial of the number you entered is "+ factorial(wNum));
-                        continue;
-                    case 3:
+                switch (response) {
+                    case 1 -> oddEven(wNum);
+
+                    case 2 -> System.out.println("The factorial of the number you entered is " + factorial(wNum));
+
+                    case 3 -> {
                         System.out.println("Quitting the program earlier than anticipated... goodbye");
                         iter = 10;
-                        continue;
+                    }
+
                 }
-//                iter++;
             } while (loops > iter);
 
         } catch (Exception e) {

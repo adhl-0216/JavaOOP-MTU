@@ -14,7 +14,6 @@ public class NumbersMenu {
 
                 int wNum;
                 wNum = line.nextInt();
-                iter++;
                 System.out.println("""
                         What would you like to do?
                         1. Determine if the number is odd or even
@@ -22,6 +21,7 @@ public class NumbersMenu {
                         3. Quit the program""");
                 int response;
                 response = line.nextInt();
+                iter++;
 
                 switch (response) {
                     case 1 -> oddEven(wNum);

@@ -6,47 +6,81 @@ import java.util.Scanner;
 public class TextAnalyser {
     public static void main(String[] args) {
         try {
-            Scanner obj = new Scanner(System.in);
-            String text1;
+            final int loops = 3 ;
+            int iter = 0;
 
+            char[][] chArr = new char[loops][100];
+            String[][] strArr = new String[loops][100];
+            int totWord = 0;
+            int shortestLen = 0;
+            String shortestText = " ";
 
-            System.out.println("Please enter piece of text: " );
-            //Programming in Java is an education
-            text1 = obj.nextLine();
+            do {
+                Scanner obj = new Scanner(System.in);
+                String[] Texts = new String[3];
+                String text;
+                int i = 0;
 
-            System.out.printf("Number of characters: %d%n",text1.length());
+                System.out.println("\n***Text Data***");
+                System.out.printf("Please enter piece of text %d: ",(iter+1));
+                text = obj.nextLine();
+                Texts[iter] = text;
+/*
+            Programming in Java is an education
+            He tried and tried but could not figure it out
+            red, ted, fed, led, hed
+*/
+                int len = Texts[iter].length();
 
-            char[] chArr = new char[text1.length()];
-            text1.getChars(0,text1.length(),chArr,0);
-            int i = 0;
-            int numLVowels = 0;
-            while (i <text1.length()){
-                switch (chArr[i]) {
-                    case 'a', 'e', 'i', 'o', 'u' -> numLVowels++;
+                char[] chItem = new char[len];
+                int numLVowels = 0;
+                int containsEd = 0;
+                String[] strItem;
+
+                text.getChars(0,len,chItem,0);
+                chArr[iter] = chItem;
+
+                while (i < len){
+                    switch (chArr[iter][i]) {
+                        case 'a', 'e', 'i', 'o', 'u' -> numLVowels++;
+                    }
+                    i++;
                 }
-                i++;
-            }
-            System.out.printf("Number of lowercase vowels: %d%n", numLVowels );
 
-            String[] strArr1 = text1.split(" ");
-            i = 0;
-            int containsEd = 0;
-
-            while (i < strArr1.length){
-                boolean bool = strArr1[i].contains("ed");
-                if(bool){
-                    containsEd++;
+                strItem = text.split(" ");
+                strArr[iter]=strItem;
+                i = 0;
+                while (i < strItem.length){
+                    boolean bool = strItem[i].contains("ed");
+                    if(bool){
+                        containsEd++;
+                    }
+                    i++;
                 }
 
-                i++;
-            }
-            /*System.out.println(bool);*/
+                totWord+=strItem.length;
 
-            System.out.printf("Number of words: %d%n", strArr1.length);
-            System.out.printf("Number of times \"ed\" appears in the text: %d%n", containsEd);
+                System.out.printf("Number of characters: %d%n",len);
+                System.out.printf("Number of lowercase vowels: %d%n", numLVowels );
+                System.out.printf("Number of words: %d%n", strItem.length);
+                System.out.printf("Number of times \"ed\" appears in the text: %d%n", containsEd);
 
+                if (shortestLen == 0){
+                    shortestLen = len;
+                    shortestText = text;
+                }else if (len < shortestLen){
+                    shortestLen = len;
+                    shortestText = text;
+                }
 
+                iter++;
+            } while (loops > iter);
 
+            double avgWords = totWord/loops;
+
+            System.out.println("\n ***Overall Results***");
+            System.out.println("Shortest piece of text: " + shortestText);
+            System.out.println("Average number of words: " + avgWords);
 
         } catch (Exception e) {
             throw new RuntimeException("Please insert relevant information.");

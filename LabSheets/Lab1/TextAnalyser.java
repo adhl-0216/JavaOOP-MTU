@@ -1,8 +1,6 @@
 package Lab1;
 
 import java.util.Scanner;
-
-
 public class TextAnalyser {
     public static void main(String[] args) {
         try {
@@ -16,14 +14,14 @@ public class TextAnalyser {
             String shortestText = " ";
 
             do {
-                Scanner obj = new Scanner(System.in);
-                String[] Texts = new String[3];
+                Scanner lines = new Scanner(System.in);
+                String[] Texts = new String[loops];
                 String text;
                 int i = 0;
 
                 System.out.println("\n***Text Data***");
                 System.out.printf("Please enter piece of text %d: ",(iter+1));
-                text = obj.nextLine();
+                text = lines.nextLine();
                 Texts[iter] = text;
 /*
             Programming in Java is an education
@@ -81,7 +79,7 @@ public class TextAnalyser {
             System.out.println("\n ***Overall Results***");
             System.out.println("Shortest piece of text: " + shortestText);
             System.out.println("Average number of words: " + avgWords);
-
+//hehexD
         } catch (Exception e) {
             throw new RuntimeException("Please insert relevant information.");
         }

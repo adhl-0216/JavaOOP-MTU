@@ -78,7 +78,7 @@ public class TextAnalyser {
 
             System.out.println("\n ***Overall Results***");
             System.out.println("Shortest piece of text: " + shortestText);
-            System.out.println("Average number of words: " + avgWords);
+            System.out.printf("Average number of words: %.0f", avgWords);
 //hehexD
         } catch (Exception e) {
             throw new RuntimeException("Please insert relevant information.");

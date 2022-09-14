@@ -26,7 +26,7 @@ public class NumbersMenu {
                 switch (response) {
                     case 1 -> oddEven(wNum);
 
-                    case 2 -> System.out.println("The factorial of the number you entered is " + factorial(wNum));
+                    case 2 -> System.out.println("The factorial of the number you entered is "+ factorial(wNum));
 
                     case 3 -> {
                         System.out.println("Quitting the program earlier than anticipated... goodbye");
@@ -49,13 +49,13 @@ public class NumbersMenu {
         }
     }
 
-    public static int factorial(int n) {
+    public static long factorial(int n) {
         if (n>=0) {
             if (n == 0){
                 return 1;
             }
             else {
-                return factorial(n - 1)*n;
+                return factorial(n-1)*n;
             }
         } else {
             System.out.println("Cannot get the factorial of a negative number!");

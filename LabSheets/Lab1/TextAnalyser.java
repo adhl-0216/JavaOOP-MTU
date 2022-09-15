@@ -23,11 +23,7 @@ public class TextAnalyser {
                 System.out.printf("Please enter piece of text %d: ",(iter+1));
                 text = lines.nextLine();
                 Texts[iter] = text;
-/*
-            Programming in Java is an education
-            He tried and tried but could not figure it out
-            red, ted, fed, led, hed
-*/
+
                 int len = Texts[iter].length();
 
                 char[] chItem = new char[len];

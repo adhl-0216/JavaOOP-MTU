@@ -74,12 +74,12 @@ public class TextAnalyser {
                 iter++;
             } while (loops > iter);
 
-            double avgWords = totWord/loops;
+            double avgWords = totWord / loops;
 
             System.out.println("\n ***Overall Results***");
             System.out.println("Shortest piece of text: " + shortestText);
             System.out.printf("Average number of words: %.0f", avgWords);
-//hehexD
+
         } catch (Exception e) {
             throw new RuntimeException("Please insert relevant information.");
         }

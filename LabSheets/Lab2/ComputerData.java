@@ -1,11 +1,11 @@
 package Lab2;
 
+import javax.swing.*;
 import java.util.*;
 
 public class ComputerData {
     public static void main(String[] args) {
         try {
-            Scanner line = new Scanner(System.in);
             List<String> allSerial = new ArrayList<>();
             List<Integer> allStorage = new ArrayList<>();
             List<String> allCpu = new ArrayList<>();
@@ -14,53 +14,36 @@ public class ComputerData {
 
             do {
                 String serial;
-                int storage;
+                String storage;
                 String cpu;
-                double price;
+                String price;
 
-                System.out.println("Please enter the serial number (<CR> to exit): ");
-                serial = line.nextLine();
+                serial = JOptionPane.showInputDialog("Please enter the serial number (<CR> to exit): ");
                 if (Objects.equals(serial.toLowerCase(Locale.ROOT), "cr")){
-                    System.out.println("EXITED PROGRAM");
+                    JOptionPane.showMessageDialog(null, "Exited Program") ;
                     break;
                 }else {
                     allSerial.add(serial);
                 }
 
-                System.out.println("Please enter the hard-disk space: ");
-                String scn = line.nextLine();
+                storage = JOptionPane.showInputDialog("Please enter the hard-disk space: ");
 
-                for () {
+                boolean valid = false;
+                while (!valid) {
+                    for (int i = 0; i < storage.length(); i++) {
+                        if (!Character.isDigit(storage.charAt(i)))
+                            break;
+                    }
+                    storage = JOptionPane.showInputDialog("Invalid! Please re-enter the hard-disk space: ");
 
                 }
+                allStorage.add(Integer.parseInt(storage));
 
-
-//                if(line.hasNextInt()){
-//                    storage = Integer.parseInt(line.nextLine());
-//                    if(storage<= 50 || storage>=5000){
-//                        System.out.println("Invalid! Please re-enter the hard-disk space: ");
-//
-//                    }
-//                }
-//                else {
-//                    System.out.println("Invalid! Please re-enter the hard-disk space: ");
-//                }
-
-//
-//                storage = Integer.parseInt(scn);
-                storage = line.nextInt();
-
-                allStorage.add(storage);
-
-                System.out.println("Please enter the processor type: ");
-                cpu = line.nextLine();
+                cpu = JOptionPane.showInputDialog("Please enter the processor type: ");
                 allCpu.add(cpu);
 
-                System.out.println("Please enter the price");
-//                price = Double.parseDouble(line.nextLine());
-                price = line.nextDouble();
-                line.nextLine();
-                allPrice.add(price);
+                price = JOptionPane.showInputDialog("Please enter the price");
+                allPrice.add(Double.parseDouble(price));
 
                 iter++;
             } while (true);

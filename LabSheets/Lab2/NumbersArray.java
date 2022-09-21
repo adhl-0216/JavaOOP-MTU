@@ -20,6 +20,7 @@ public class NumbersArray {
                 The list of values above the average is: \n%s
                 """,largest(arr),avg,str);
         JOptionPane.showMessageDialog(null, output);
+
         System.exit(0);
     }
 

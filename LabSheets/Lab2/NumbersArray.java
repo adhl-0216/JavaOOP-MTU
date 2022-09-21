@@ -11,7 +11,8 @@ public class NumbersArray {
 
         avg = average(arr);
         abvAvg = aboveAverage(arr,avg);
-        String str = abvAvg.substring(1,abvAvg.lastIndexOf(']'));
+        String str = null;
+        if (abvAvg != null) str = abvAvg.substring(1,abvAvg.lastIndexOf(']'));
 
         String output = String.format("""
                 The largest value in the array is %.1f \t
@@ -24,14 +25,12 @@ public class NumbersArray {
 
     private static String aboveAverage(double[] arr, double avg) {
         arr = Arrays.stream(arr).sorted().toArray();
-        double[] sliced = new double[0];
         for (int i = 0; i<arr.length;i++) {
             if ((arr[i] > avg)) {
-                sliced = Arrays.copyOfRange(arr, i, arr.length);
-                break;
+                return Arrays.toString(Arrays.copyOfRange(arr, i, arr.length));
             }
         }
-        return Arrays.toString(sliced);
+        return null;
     }
 
     private static double average(double[] arr) {

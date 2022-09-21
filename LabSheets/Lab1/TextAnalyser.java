@@ -23,11 +23,7 @@ public class TextAnalyser {
                 System.out.printf("Please enter piece of text %d: ",(iter+1));
                 text = lines.nextLine();
                 Texts[iter] = text;
-/*
-            Programming in Java is an education
-            He tried and tried but could not figure it out
-            red, ted, fed, led, hed
-*/
+
                 int len = Texts[iter].length();
 
                 char[] chItem = new char[len];
@@ -74,12 +70,12 @@ public class TextAnalyser {
                 iter++;
             } while (loops > iter);
 
-            double avgWords = totWord/loops;
+            double avgWords = totWord / loops;
 
             System.out.println("\n ***Overall Results***");
             System.out.println("Shortest piece of text: " + shortestText);
             System.out.printf("Average number of words: %.0f", avgWords);
-//hehexD
+
         } catch (Exception e) {
             throw new RuntimeException("Please insert relevant information.");
         }

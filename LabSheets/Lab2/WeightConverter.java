@@ -9,7 +9,6 @@ public class WeightConverter {
     private static final JTextField poundsText = new JTextField(5);
 
     public static void main(String[] args) {
-//        JLabel labelKilos = new JLabel(String.format( "This is equivalent to %.2fkg", kg));
         prepareGUI();
     }
 
@@ -41,7 +40,6 @@ public class WeightConverter {
         });
 
         frame.add(panel);
-
 
         frame.setVisible(true);
     }

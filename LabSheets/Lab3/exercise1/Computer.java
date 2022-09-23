@@ -15,7 +15,13 @@ public class Computer {
         price = 0;
     }
 
-    public Computer(String manufacturer, String type, double speed, int RAM, double price) {
+    public Computer(
+            String manufacturer,
+            String type,
+            double speed,
+            int RAM,
+            double price
+    ) {
         this.manufacturer = manufacturer;
         this.type = type;
         this.speed = speed;

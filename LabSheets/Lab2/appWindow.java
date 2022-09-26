@@ -5,11 +5,11 @@ import java.awt.*;
 
 public class appWindow {
 
-    String title;
-    int[] frameSize;
-    int userInputCols;
-    String lblText;
-    String outputDefaultText;
+    private String title;
+    private int[] frameSize;
+    private int userInputCols;
+    private String lblText;
+    private String outputDefaultText;
 
     private String userInputText;
 
@@ -52,17 +52,20 @@ public class appWindow {
             this.userInputText = input.getText();
 
         });
-
-        frame.add(panel);
-        frame.setVisible(true);
     }
 
-    static JPanel panel = new JPanel();
-    static JFrame frame;
+    public String getUserInputText(){
+        return this.userInputText;
+    }
+
+    static         JPanel panel = new JPanel();
+    static         JLabel output = new JLabel();
+
+    static JFrame frame = new JFrame();
+
 
     public void prepareGUI() {
-
-        JFrame frame = new JFrame(this.title);
+        frame.setName(this.title);
 
         frame.setSize(this.frameSize[0],this.frameSize[1]);
         frame.setLocationRelativeTo(null);
@@ -70,7 +73,9 @@ public class appWindow {
 
         panel.setLayout(new FlowLayout());
 
-//        inputField(this.userInputText , userInputCols);
+        output.setText(this.userInputText);
+
+        panel.add(output);
 
         frame.add(panel);
 

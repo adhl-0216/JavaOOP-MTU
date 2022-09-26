@@ -10,7 +10,9 @@ public class NumbersGUI {
                 "Please enter your numbers here",
                 "No numbers entered yet"
                 );
-        mainframe.prepareGUI();
         mainframe.inputField("Please enter your numbers here",20);
+        mainframe.prepareGUI();
+
+        System.out.println(mainframe.getUserInputText());
     }
 }

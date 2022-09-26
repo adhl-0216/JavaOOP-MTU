@@ -5,11 +5,11 @@ import java.awt.*;
 
 public class appWindow {
 
-    private String title;
-    private int[] frameSize;
-    private int userInputCols;
-    private String lblText;
-    private String outputDefaultText;
+    private final String title;
+    private final int[] frameSize;
+    private final int userInputCols;
+    private final String lblText;
+    private final String outputDefaultText;
 
     private String userInputText;
     public static JTextField userInput;

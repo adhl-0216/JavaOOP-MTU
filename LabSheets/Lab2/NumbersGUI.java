@@ -6,12 +6,11 @@ public class NumbersGUI {
         appWindow mainframe  = new appWindow(
                 "Numbers Application",
                 frameSize,
-                20,
+//                20,
                 "Please enter your numbers here",
                 "No numbers entered yet"
                 );
         mainframe.prepareGUI();
-
-        System.out.println(mainframe.getUserInputText());
+        mainframe.inputField("Please enter your numbers here",20);
     }
 }

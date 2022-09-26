@@ -12,8 +12,6 @@ public class appWindow {
     String outputDefaultText;
 
     private String userInputText;
-    public static JTextField userInput;
-    public static JLabel output ;
 
     public appWindow(){
         title = "Title";
@@ -25,49 +23,54 @@ public class appWindow {
     public appWindow(
             String title,
             int[] frameSize,
-            int userInputCols,
             String lblText,
             String outputDefaultText
     ){
         this.title = title;
         this.frameSize = frameSize;
-        this.userInputCols = userInputCols;
         this.lblText = lblText;
         this.outputDefaultText = outputDefaultText;
-        this.userInputText = "empty";
+        this.userInputText = "";
     }
 
-    public String getUserInputText(){return userInputText;}
+    public void inputField(String title, int colSize){
+        JTextField input = new JTextField(colSize);
+        JLabel label = new JLabel(title);
 
-    public void prepareGUI() {
-
-        JFrame frame = new JFrame(this.title);
-        JPanel panel = new JPanel();
-
-        frame.setSize(this.frameSize[0],this.frameSize[1]);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JLabel label = new JLabel(this.lblText);
-        userInput = new JTextField(this.userInputCols);
-        output = new JLabel(this.outputDefaultText);
-
-        panel.setLayout(new FlowLayout());
         panel.add(label);
-        panel.add(userInput);
-        panel.add(output);
+        panel.add(input);
 
-        userInput.addActionListener(e -> {
-            if (userInput.getText().equals("")) {
+        input.addActionListener(e -> {
+            if (input.getText().equals("")) {
                 JOptionPane.showMessageDialog(
                         null,
                         "You must enter something",
                         "Error",
                         JOptionPane.ERROR_MESSAGE);
-            } else {
-                this.userInputText = userInput.getText();
             }
+
+            this.userInputText = input.getText();
+
         });
+
+        frame.add(panel);
+        frame.setVisible(true);
+    }
+
+    static JPanel panel = new JPanel();
+    static JFrame frame;
+
+    public void prepareGUI() {
+
+        JFrame frame = new JFrame(this.title);
+
+        frame.setSize(this.frameSize[0],this.frameSize[1]);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        panel.setLayout(new FlowLayout());
+
+//        inputField(this.userInputText , userInputCols);
 
         frame.add(panel);
 

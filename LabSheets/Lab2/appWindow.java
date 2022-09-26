@@ -5,17 +5,23 @@ import java.awt.*;
 
 public class appWindow {
 
-    private final String title;
-    private final int[] frameSize;
-    private final int userInputCols;
-    private final String lblText;
-    private final String outputDefaultText;
+    String title;
+    int[] frameSize;
+    int userInputCols;
+    String lblText;
+    String outputDefaultText;
 
     private String userInputText;
     public static JTextField userInput;
     public static JLabel output ;
 
-
+    public appWindow(){
+        title = "Title";
+        frameSize = new int[]{100, 100};
+        userInputCols = 5;
+        lblText = "Enter something";
+        outputDefaultText = "";
+    }
     public appWindow(
             String title,
             int[] frameSize,
@@ -29,14 +35,6 @@ public class appWindow {
         this.lblText = lblText;
         this.outputDefaultText = outputDefaultText;
         this.userInputText = "empty";
-    }
-
-    public appWindow(){
-        title = "Title";
-        frameSize = new int[]{100, 100};
-        userInputCols = 5;
-        lblText = "Enter something";
-        outputDefaultText = "";
     }
 
     public String getUserInputText(){return userInputText;}

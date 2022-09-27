@@ -1,8 +1,10 @@
-package Lab5.exercise4;
+package Lab5.exercise5;
 
 public class BankAccount {
     private String owner;
     private int number;
+
+    private static int count;
     private static double interestRate;
 
     public BankAccount(){
@@ -26,7 +28,7 @@ public class BankAccount {
         this.owner = owner;
     }
 
-    public void setNumber(int number) {
+    private void setNumber(int number) {
         this.number = number;
     }
 

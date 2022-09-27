@@ -1,6 +1,4 @@
-package Lab4.exercise5;
-
-import javax.swing.*;
+package Lab5.exercise1;
 
 public class Book {
 
@@ -45,31 +43,19 @@ public class Book {
     }
 
     public void setTitle(String title) {
-        if (title == null || title.isBlank())
-            this.title = "No Valid Title Supplied";
-        else
-            this.title = title;
+        this.title = title;
     }
 
     public void setISBN(String ISBN) {
-        if (ISBN == null|| ISBN.isEmpty())
-            this.ISBN = "No Valid ISBN Supplied";
-        else
-            this.ISBN = ISBN;
+        this.ISBN = ISBN;
     }
 
     public void setPages(int pages) {
-        if (pages < 0 || pages > 4000)
-            this.pages = 0;
-        else
-            this.pages = pages;
+        this.pages = pages;
     }
 
     public void setPrice(double price) {
-        if (price < 0 || price > 50000)
-            this.price = 0;
-        else
-            this.price = price;
+        this.price = price;
     }
 
     public String toString() {

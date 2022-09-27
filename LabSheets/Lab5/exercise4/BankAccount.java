@@ -2,7 +2,7 @@ package Lab5.exercise4;
 
 public class BankAccount {
     private String owner;
-    private int member;
+    private int number;
     private static double interestRate;
 
     public BankAccount(){
@@ -14,11 +14,11 @@ public class BankAccount {
     public BankAccount
             (
                 String owner,
-                int member,
+                int number,
                 double interestRate
             ){
         setOwner(owner);
-        setMember(member);
+        setMember(number);
         setInterestRate(interestRate);
     }
 
@@ -26,8 +26,8 @@ public class BankAccount {
         this.owner = owner;
     }
 
-    public void setMember(int member) {
-        this.member = member;
+    public void setMember(int number) {
+        this.number = number;
     }
 
     public static void setInterestRate(double interestRate) {
@@ -39,10 +39,18 @@ public class BankAccount {
     }
 
     public int getMember() {
-        return member;
+        return number;
     }
 
     public static double getInterestRate() {
         return interestRate;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Owner: %s,  Account Number: %d,  Interest Rate: %.2f",
+                this.owner, this.number, interestRate
+        );
     }
 }

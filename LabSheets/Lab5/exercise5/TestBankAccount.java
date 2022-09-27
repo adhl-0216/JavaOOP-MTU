@@ -10,7 +10,7 @@ public class TestBankAccount {
 
         output += "Calling the no-argument BankAccount constructor. The first BankAccount object details are:\n\n" + ba1;
 
-        BankAccount ba2 = new BankAccount("Richy Rich", 2342343, 0.75);
+        BankAccount ba2 = new BankAccount("Richy Rich", 0.75);
 
         output +="\n\nCalling the multi-argument BankAccount constructor. The second BankAccount object details are:\n\n" + ba2;
 

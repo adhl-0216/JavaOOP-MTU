@@ -4,32 +4,36 @@ public class BankAccount {
     private String owner;
     private int number;
 
-    private static int count;
+    private static int count = 0;
     private static double interestRate;
 
     public BankAccount(){
-        setOwner("Owner not Available.");
-        setNumber(0);
+        setOwner("Owner not Available");
+        setNumber();
         setInterestRate(0);
     }
 
     public BankAccount
             (
                 String owner,
-                int number,
                 double interestRate
             ){
         setOwner(owner);
-        setNumber(number);
+        setNumber();
         setInterestRate(interestRate);
+    }
+
+    public static void setCount(int count) {
+        BankAccount.count = count;
     }
 
     public void setOwner(String owner) {
         this.owner = owner;
     }
 
-    private void setNumber(int number) {
-        this.number = number;
+    private void setNumber() {
+        count++;
+        this.number = count;
     }
 
     public static void setInterestRate(double interestRate) {

@@ -6,7 +6,7 @@ public class BankAccount {
     private static double interestRate;
 
     public BankAccount(){
-        setOwner("Owner not Available.");
+        setOwner("Owner not Available");
         setNumber(0);
         setInterestRate(0);
     }

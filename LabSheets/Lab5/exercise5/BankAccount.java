@@ -23,10 +23,6 @@ public class BankAccount {
         setInterestRate(interestRate);
     }
 
-    public static void setCount(int count) {
-        BankAccount.count = count;
-    }
-
     public void setOwner(String owner) {
         this.owner = owner;
     }
@@ -38,6 +34,10 @@ public class BankAccount {
 
     public static void setInterestRate(double interestRate) {
         BankAccount.interestRate = interestRate;
+    }
+
+    public static int getCount() {
+        return count;
     }
 
     public String getOwner() {

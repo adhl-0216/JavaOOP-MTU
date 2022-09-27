@@ -16,7 +16,7 @@ public class TestBankAccount {
 
         double chgRate = Double.parseDouble(JOptionPane.showInputDialog("Insert new interest rate: "));
 
-        BankAccount.setInterestRate(0.5);
+        BankAccount.setInterestRate(chgRate);
 
         output += String.format(
                 """
@@ -35,6 +35,8 @@ public class TestBankAccount {
                 """ ,
                 chgRate, ba1, ba2
         );
+
+        output += String.format("%n%n %d object(s) were created.", BankAccount.getCount());
 
         JOptionPane.showMessageDialog(null, output, "BankAccount Object Data", JOptionPane.INFORMATION_MESSAGE);
 

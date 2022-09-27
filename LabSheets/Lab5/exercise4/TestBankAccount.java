@@ -12,7 +12,7 @@ public class TestBankAccount {
 
         BankAccount ba2 = new BankAccount("Richy Rich", 2342343, 0.75);
 
-        output +="\n\nCalling the multi-argument BankAccount constructor. The second BankAccount object details are:\n\n"+ ba2;
+        output +="\n\nCalling the multi-argument BankAccount constructor. The second BankAccount object details are:\n\n" + ba2;
 
         double chgRate = Double.parseDouble(JOptionPane.showInputDialog("Insert new interest rate: "));
 

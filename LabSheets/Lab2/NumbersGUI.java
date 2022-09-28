@@ -6,45 +6,69 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class NumbersGUI {
-    static JFrame frame = new JFrame("Numbers GUI");
-    static JPanel panel = new JPanel();
-    static JTextField input = new JTextField(20);
-    static JLabel label = new JLabel("Please enter your numbers here");
-    static JLabel output = new JLabel("No numbers entered yet");
-    public static void main(String[] args) {
+    JLabel minNum, maxNum;
+    JTextField jTextField;
+
+    float largest=-1e38f,smallest=1e38f;
+    public NumbersGUI() {
+
+        JFrame frame = new JFrame("Numbers GUI");
+        FlowLayout flowLayout = new FlowLayout();
+        frame.setLayout(flowLayout);
 
         frame.setSize(500,100);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        panel.setLayout(new FlowLayout());
+        JLabel label = new JLabel("Please enter your numbers here");
 
-        panel.add(label);
-        panel.add(input);
-        panel.add(output);
+        maxNum = new JLabel("No numbers entered yet");
+        minNum = new JLabel();
 
+        jTextField = new JTextField(20);
 
-        input.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (input.getText().equals("")) {
-                    JOptionPane.showMessageDialog(
-                            null,
-                            "You must enter something",
-                            "Error",
-                            JOptionPane.ERROR_MESSAGE);
-                }
-                String userInputText = input.getText();
+        frame.add(label);
+        frame.add(jTextField);
 
-                output.setText(userInputText);
-            }
-        });
+        frame.add(maxNum);
+        frame.add(minNum);
 
-
-//        output.setText(userInputText);
-
-        frame.add(panel);
+        jTextField.addActionListener(new TextFieldEventHandler());
 
         frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        NumbersGUI numbersGUI = new NumbersGUI();
+    }
+
+    private class TextFieldEventHandler implements ActionListener {
+        public void actionPerformed(ActionEvent e)
+        {
+            float number;
+            String numberAsString;
+
+            if(jTextField.getText().equals(""))
+            {
+                JOptionPane.showMessageDialog(null,"You must enter something!!!","Error",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+            else
+            {
+                numberAsString = jTextField.getText();
+                jTextField.setText("");
+                number = Float.parseFloat(numberAsString);
+
+                if(number>largest)
+                    largest = number;
+
+                if (number<smallest)
+                    smallest = number;
+
+                maxNum.setText("Largest number so far is: " + largest);
+                minNum.setText("Smallest number so far is: " + smallest);
+
+            }
+        }
     }
 }

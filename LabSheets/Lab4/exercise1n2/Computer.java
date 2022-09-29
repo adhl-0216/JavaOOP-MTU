@@ -1,4 +1,4 @@
-package Lab3.exercise1;
+package Lab4.exercise1n2;
 
 public class Computer {
     private String manufacturer;
@@ -7,12 +7,12 @@ public class Computer {
     private int RAM;
     private double price;
 
-    public Computer() {
-        manufacturer = "Not available";
-        type = "Not available";
-        speed = 0;
-        RAM = 0;
-        price = 0;
+/*    public Computer() {
+        setManufacturer("Not available");
+        setType("Not available");
+        setSpeed(0);
+        setRAM(0);
+        setPrice(0);
     }
 
     public Computer(
@@ -22,14 +22,14 @@ public class Computer {
             int RAM,
             double price
     ) {
-        this.manufacturer = manufacturer;
-        this.type = type;
-        this.speed = speed;
-        this.RAM = RAM;
-        this.price = price;
-    }
+        setManufacturer(manufacturer);
+        setType(type);
+        setSpeed(speed);
+        setRAM(RAM);
+        setPrice(price);
+    }*/
 
-    String getManufacturer() {
+    public String getManufacturer() {
         return manufacturer;
     }
 
@@ -62,11 +62,11 @@ public class Computer {
     }
 
     public void setRAM(int RAM) {
-        this.RAM = RAM;
+        if (RAM > 0) this.RAM = RAM;
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if (price > 0) this.price = price;
     }
 
     public String toString() {

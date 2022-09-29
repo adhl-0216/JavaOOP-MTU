@@ -31,8 +31,10 @@ public class ComputerData {
                 boolean valid = false;
                 while (!valid) {
                     for (int i = 0; i < storage.length(); i++) {
-                        if (!Character.isDigit(storage.charAt(i)))
+                        if (!Character.isDigit(storage.charAt(i))) {
+                            valid = true;
                             break;
+                        }
                     }
                     storage = JOptionPane.showInputDialog("Invalid! Please re-enter the hard-disk space: ");
 

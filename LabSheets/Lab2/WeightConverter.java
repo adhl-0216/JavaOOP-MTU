@@ -2,60 +2,46 @@ package Lab2;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-
-//create frame
 
 public class WeightConverter {
-    private static JFrame mainFrame;
-    private static JLabel statusLabel;
-    private static JPanel controlPanel;
+
+    private static JLabel kgLabel;
+    private static final JTextField poundsText = new JTextField(5);
+
     public static void main(String[] args) {
-        double kg = 0;
-
-//        JLabel labelKilos = new JLabel(String.format( "This is equivalent to %.2fkg", kg));
-        inputField();
         prepareGUI();
-
-
     }
 
     private static void prepareGUI() {
-        mainFrame = new JFrame("Weight Converter");
-        mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainFrame.setSize(300, 100);
-        mainFrame.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent windowEvent) {
-                System.exit(0);
-            }
-        });
-        statusLabel = new JLabel("",JLabel.CENTER);
 
-        controlPanel = new JPanel();
-        controlPanel.setLayout(new FlowLayout());
+        JFrame frame = new JFrame("Weight Converter");
+        JPanel panel = new JPanel();
 
-        mainFrame.add(controlPanel);
-        mainFrame.add(statusLabel);
-        mainFrame.setVisible(true);
-    }
+        frame.setSize(300,100);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    private static void inputField(){
         JLabel poundsLabel = new JLabel("Pounds: ");
-        final JTextField poundsText = new JTextField(5);
+        kgLabel = new JLabel("");
 
-        poundsText.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String data = poundsText.getText();
-                statusLabel.setText(data);
+        panel.setLayout(new FlowLayout());
+        panel.add(poundsLabel);
+        panel.add(poundsText);
+        panel.add(kgLabel);
+
+        poundsText.addActionListener(e -> {
+            if (poundsText.getText().equals("")) {
+                JOptionPane.showMessageDialog(null,"You must enter a value into the text-field","Error",JOptionPane.ERROR_MESSAGE);
+            } else {
+                double kg;
+                kg = Double.parseDouble(poundsText.getText())*0.454;
+                kgLabel.setText("This is equal to " + String.format("%.2f",kg) + "kg");
             }
         });
-        controlPanel.add(poundsLabel);
-        controlPanel.add(poundsText);
-        mainFrame.setVisible(true);
-    }
 
+        frame.add(panel);
+
+        frame.setVisible(true);
+    }
 }
 

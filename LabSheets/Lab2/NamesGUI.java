@@ -37,7 +37,7 @@ public class NamesGUI {
 
         searchBtn = new JButton("Search");
         searchBtn.addActionListener(e -> {
-            String query = jTextField.getText();
+            String query = jTextField.getText().replaceAll("\\s+", "");
 
             String msg = "The name you searched for, " + query;
             String title = "Name";
@@ -65,8 +65,8 @@ public class NamesGUI {
             int len = 0;
             String longestName = "";
             for (String name: names) {
-                if (name.length() > len){
-                    len = name.length();
+                if (name.replaceAll("\\s+", "").length() > len){
+                    len = name.replaceAll("\\s+", "").length();
                     longestName = name;
                 }
             }
@@ -93,7 +93,7 @@ public class NamesGUI {
         while (l <= r) {
             int m = l + (r - l) / 2;
 
-            int res = query.compareTo(strArr[m]);
+            int res = query.compareTo(strArr[m].replaceAll("\\s+", ""));
 
             if (res == 0)
                 return true;
@@ -114,7 +114,7 @@ public class NamesGUI {
 
             try {
                 if (idx == 4){
-                    names[idx] = (jTextField.getText()).strip();
+                    names[idx] = (jTextField.getText());
                     jTextField.setText("");
                     JOptionPane.showMessageDialog(null,
                             "names array now full! To find the longest name or search this array hit return",

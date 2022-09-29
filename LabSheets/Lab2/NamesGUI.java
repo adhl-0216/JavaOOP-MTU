@@ -71,7 +71,6 @@ public class NamesGUI {
                 }
             }
             JOptionPane.showMessageDialog(null,"The longest name found is "+longestName,"Longest Name!", JOptionPane.INFORMATION_MESSAGE);
-            System.out.println("click2");
         });
         findMaxLenBtn.setVisible(false);
 
@@ -112,7 +111,6 @@ public class NamesGUI {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            try {
                 if (idx == 4){
                     names[idx] = (jTextField.getText());
                     jTextField.setText("");
@@ -135,9 +133,6 @@ public class NamesGUI {
                     output.setText(outputStr);
                 }
                 idx++;
-            } catch (ArrayIndexOutOfBoundsException ex) {
-                System.out.println(ex);
-            }
         }
     }
 }

@@ -36,39 +36,42 @@ public class NamesGUI {
         jTextField.addActionListener(textFieldEventHandler);
 
         searchBtn = new JButton("Search");
-        searchBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String query = jTextField.getText();
+        searchBtn.addActionListener(e -> {
+            String query = jTextField.getText();
 
-                String msg = "The name you searched for, " + query;
-                String title = "Name";
-                int msgType;
+            String msg = "The name you searched for, " + query;
+            String title = "Name";
+            int msgType;
 
-                if (binarySearch(names, query)) {
-                    title += " Found!";
-                    msg += ", was found!";
-                    msgType = 1;
-                }
-                else {
-                    title += " Not Found!";
-                    msg += ", was not found!";
-                    msgType = 0;
-                }
-
-                JOptionPane.showMessageDialog(null,msg,title,msgType);
-
-                jTextField.setText("");
+            if (binarySearch(names, query)) {
+                title += " Found!";
+                msg += ", was found!";
+                msgType = 1;
             }
+            else {
+                title += " Not Found!";
+                msg += ", was not found!";
+                msgType = 0;
+            }
+
+            JOptionPane.showMessageDialog(null,msg,title,msgType);
+
+            jTextField.setText("");
         });
         searchBtn.setVisible(false);
 
         findMaxLenBtn = new JButton("Find Longest Name");
-        findMaxLenBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("click2");
+        findMaxLenBtn.addActionListener(e -> {
+            int len = 0;
+            String longestName = "";
+            for (String name: names) {
+                if (name.length() > len){
+                    len = name.length();
+                    longestName = name;
+                }
             }
+            JOptionPane.showMessageDialog(null,"The longest name found is "+longestName,"Longest Name!", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("click2");
         });
         findMaxLenBtn.setVisible(false);
 
@@ -111,7 +114,7 @@ public class NamesGUI {
 
             try {
                 if (idx == 4){
-                    names[idx] = jTextField.getText();
+                    names[idx] = (jTextField.getText()).strip();
                     jTextField.setText("");
                     JOptionPane.showMessageDialog(null,
                             "names array now full! To find the longest name or search this array hit return",

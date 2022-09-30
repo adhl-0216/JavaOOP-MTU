@@ -1,13 +1,10 @@
 package Lab6.exercise1;
 
 public class Person {
-
     private String firstName;
     private String lastName;
-
     public Person(){
-        setFirstName("Not Supplied");
-        setLastName("Not Supplied");
+        setName("Not Supplied","Not Supplied");
     }
 
     public void setName(String firstName, String lastName){

@@ -29,8 +29,6 @@ public class TestCollegeApp {
         Institute ITT = new Institute("Institute of Technology, Tralee", departments);
 
 //print output
-/*        System.out.println(computing);
-        System.out.println(creativeMedia);*/
         System.out.println(ITT);
     }
 }

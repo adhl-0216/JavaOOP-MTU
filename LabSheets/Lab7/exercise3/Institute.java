@@ -1,7 +1,5 @@
 package Lab7.exercise3;
 
-import java.util.Arrays;
-
 public class Institute {
     private String name;
     private Department[] departments;

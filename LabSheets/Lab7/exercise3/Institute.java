@@ -26,8 +26,20 @@ public class Institute {
     }
 
     public int getTotalStudents(){
-        return 0;
+        int count = 0;
+
+        for (Department dpt: getDepartments()) {
+            if (dpt != null) {
+                for (Student std: dpt.getStudents()) {
+                    if (std != null) {
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
     }
+
 
     @Override
     public String toString() {

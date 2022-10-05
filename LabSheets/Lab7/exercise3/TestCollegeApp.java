@@ -32,10 +32,12 @@ public class TestCollegeApp {
         departments[1] = creativeMedia;
 
         System.out.println(ITT);
-
+//        154345
         changeDept(154345, computing, creativeMedia);
         System.out.println(computing);
         System.out.println(creativeMedia);
+
+        System.out.println(ITT.getTotalStudents());
     }
     private static void changeDept(int stdID, Department from, Department to) {
         boolean foundFrom = false, foundTo = false;
@@ -51,7 +53,7 @@ public class TestCollegeApp {
                 Student[] std = from.getStudents();
                 if (std[i] != null) {
                     if (std[i].getId() == stdID) {
-                        System.out.println("Found " + std[i].getName() + "!");
+                        System.out.println("Found " + std[i].getName() + "!\n");
                         std[i].setDepartment(to.getName());
 
                         //modify from department
@@ -59,7 +61,6 @@ public class TestCollegeApp {
                         System.arraycopy(std, 0, setFrom, 0 ,i );
                         System.arraycopy(std, i+1, setFrom, i,std.length-i-1);
                         from.setStudents(setFrom);
-                        System.out.println(from.getStudents().length);
 
                         //modify to department
                         Student[] setTo = Arrays.copyOf(to.getStudents(),to.getStudents().length);
@@ -70,9 +71,13 @@ public class TestCollegeApp {
                             }
                         }
                         to.setStudents(setTo);
+                        System.out.println("Successfully changed " + std[i].getName() + "'s Department!\n");
                     }
+                    else System.out.println("Student Not Found!\n");
+                    break;
                 }
             }
         }
+        else System.out.println("Department Not Found!\n");
     }
 }

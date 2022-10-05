@@ -1,6 +1,6 @@
-package Lab8.exercise1;
+package Lab8.exercise2;
 
-public class Bicycle extends Vehicle{
+public class Bicycle extends Vehicle {
     private int gearCount;
     private boolean hasBell;
 

@@ -1,6 +1,6 @@
-package Lab8.exercise1;
+package Lab8.exercise2;
 
-public class Car extends Vehicle{
+public class Car extends Vehicle {
     private int maxPassengers;
     private String registrationNumber;
 

@@ -1,4 +1,4 @@
-package Lab8.exercise1;
+package Lab8.exercise2;
 
 public class TestVehicle {
     public static void main(String[] args) {

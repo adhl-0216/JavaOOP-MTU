@@ -26,11 +26,13 @@ public class Department {
     @Override
     public String toString() {
         StringBuilder listOStds = new StringBuilder();
-        for (Student std: getStudents()) {
+
+        for (Student std: this.getStudents()) {
             if (std != null) {
                 listOStds.append(std).append("\n");
             }
         }
+
         return "Department name: " + name +
                 "\nList of Students: \n" + listOStds;
     }

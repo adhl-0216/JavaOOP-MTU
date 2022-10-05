@@ -35,7 +35,10 @@ public class Car extends Vehicle {
     }
 
     public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
+        if(Validator.isValidRegistrationNumber(registrationNumber))
+            this.registrationNumber = registrationNumber;
+        else
+            this.registrationNumber = "Invalid Registration Number";
     }
 
     public String toString() {
@@ -43,4 +46,5 @@ public class Car extends Vehicle {
                 "\nMax Passengers: " + this.maxPassengers +
                 "\nRegistration Number: " + this.registrationNumber;
     }
+
 }

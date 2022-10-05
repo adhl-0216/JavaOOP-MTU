@@ -56,13 +56,13 @@ public class TestCollegeApp {
                         System.out.println("Found " + std[i].getName() + "!\n");
                         std[i].setDepartment(to.getName());
 
-                        //modify from department
+                        //modify from department, drop std
                         Student[] setFrom = new Student[std.length];
                         System.arraycopy(std, 0, setFrom, 0 ,i );
                         System.arraycopy(std, i+1, setFrom, i,std.length-i-1);
                         from.setStudents(setFrom);
 
-                        //modify to department
+                        //modify to department, append std
                         Student[] setTo = Arrays.copyOf(to.getStudents(),to.getStudents().length);
                         for (int c = 0;c< setTo.length ; c++) {
                             if (setTo[c] == null) {
@@ -71,6 +71,7 @@ public class TestCollegeApp {
                             }
                         }
                         to.setStudents(setTo);
+
                         System.out.println("Successfully changed " + std[i].getName() + "'s Department!\n");
                     }
                     else System.out.println("Student Not Found!\n");

@@ -46,5 +46,4 @@ public class Car extends Vehicle {
                 "\nMax Passengers: " + this.maxPassengers +
                 "\nRegistration Number: " + this.registrationNumber;
     }
-
 }

@@ -1,7 +1,5 @@
 package Lab7.exercise3;
 
-import java.util.Arrays;
-
 public class TestCollegeApp {
     static Department[] departments = new Department[5];
     static Institute ITT = new Institute("Institute of Technology, Tralee", departments);

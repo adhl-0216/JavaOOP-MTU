@@ -63,15 +63,12 @@ public class TestCollegeApp {
                         from.setStudents(setFrom);
 
                         //modify to department, append std
-                        Student[] setTo = Arrays.copyOf(to.getStudents(),to.getStudents().length);
-                        for (int c = 0;c< setTo.length ; c++) {
-                            if (setTo[c] == null) {
-                                setTo[c] = std[i];
+                        for (int c = 0;c< to.getStudents().length ; c++) {
+                            if (to.getStudents()[c] == null) {
+                                to.getStudents()[c] = std[i];
                                 break;
                             }
                         }
-                        to.setStudents(setTo);
-
                         System.out.println("Successfully changed " + std[i].getName() + "'s Department!\n");
                     }
                     else System.out.println("Student Not Found!\n");

@@ -1,13 +1,11 @@
 package PS5.extras;
 
-import java.util.Locale;
-
 public class TestEmployee {
-    private static Employee[] allEmployee = new Employee[5];
+    private static final Employee[] allEmployee = new Employee[5];
 
     public static void main(String[] args) {
         allEmployee[0] = new Employee(
-                "Joseph Bloggs III",
+                "Joseph Blogs III",
                 536272,
                 new Address("123 Hyde Road" ,
                         "Ballydehob" ,
@@ -36,27 +34,27 @@ public class TestEmployee {
                         "Kerry",
                         "Ireland",
                         "AH78P36"),
-                ins2
+                null
         );
 
-        for (Employee emp : allEmployee) {
-            if (emp.getName().toLowerCase(Locale.ROOT).contains("joseph")) {
-                emp.setAddress(new Address(
-                        "56 Main Street",
-                        "Thurles",
-                        "Tipperary",
-                        "Ireland",
-                        "B87JH5Q"));
-                System.out.println("Changed \"joseph\"'s address\n" +emp);
-                break;
-            }
-        }
+//        for (Employee emp : allEmployee) {
+//            if (emp.getName().toLowerCase(Locale.ROOT).contains("ioseph")) {
+//                emp.setAddress(new Address(
+//                        "56 Main Street",
+//                        "Thurles",
+//                        "Tipperary",
+//                        "Ireland",
+//                        "B87JH5Q"));
+//                System.out.println("Changed \"ioseph\"'s address\n" +emp);
+//                break;
+//            }
+//        }
 
-        allEmployee[1].setInsurance(null);
-        System.out.println("\nRemoving insurance details of the second employee:\n");
-        System.out.println(allEmployee[1]);
-        System.out.println("State of the insurance of the second employee:\n");
-        System.out.println(ins2);
+//        allEmployee[1].setInsurance(null);
+//        System.out.println("\nRemoving insurance details of the second employee:\n");
+//        System.out.println(allEmployee[1]);
+//        System.out.println("State of the insurance of the second employee:\n");
+//        System.out.println(ins2);
 
 //        for (Employee emp : allEmployee) {
 //            if (emp.getAddress().getCounty().equalsIgnoreCase("Kerry")) {
@@ -87,21 +85,44 @@ public class TestEmployee {
                     "78TYMDS"),
                 new Insurance("LA Brokers Golden Goose", 7372642)
         );
+        System.out.println("====================================================");
         sortEmployeeByName(allEmployee);
-//        for (int i = 0; i < allEmployee.length; i++) {
-//            System.out.printf("Employee %d:\n\n%s%n\n",i+1,allEmployee[i]);
-//        }
+        for (int i = 0; i < allEmployee.length; i++) {
+            System.out.printf("Employee %d:\n\n%s%n\n",i+1,allEmployee[i]);
+        }
     }
 
-    private static void sortEmployeeByName(Employee[] allEmployee){
-        Employee temp = new Employee(null, 0, null, null);
-        for (int i = 0; i < allEmployee.length; i++) {
-            for (int j = 0; j < allEmployee.length; j++) {
-                if (allEmployee[i].getName().charAt(0)>allEmployee[j].getName().charAt(0)){
-                    temp = allEmployee[j];
+    private static void sortEmployeeByName(Employee[] arr){
+        // One by one move boundary of unsorted subarray
+        for(int i = 0; i < arr.length - 1; i++)
+        {
+
+            // Find the minimum element in unsorted array
+            int min_index = i;
+            String minStr = arr[i].getName();
+            for(int j = i + 1; j < arr.length; j++)
+            {
+
+            /*compareTo() will return a -ve value,
+            if string1 (arr[j]) is smaller than string2 (minStr)*/
+                // If arr[j] is smaller than minStr
+
+                if(arr[j].getName().compareTo(minStr) < 0)
+                {
+                    // Make arr[j] as minStr and update min_idx
+                    minStr = arr[j].getName();
+                    min_index = j;
                 }
             }
-            System.out.printf("Employee %d:\n\n%s%n\n",i+1,allEmployee[i]);
+
+            // Swapping the minimum element
+            // found with the first element.
+            if(min_index != i)
+            {
+                Employee temp = arr[min_index];
+                arr[min_index] = arr[i];
+                arr[i] = temp;
+            }
         }
     }
 }

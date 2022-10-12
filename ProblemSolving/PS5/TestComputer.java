@@ -1,7 +1,5 @@
 package PS5;
 
-import java.util.Arrays;
-
 public class TestComputer {
     public static void main(String[] args) {
         Computer[] allPC = new Computer[3];

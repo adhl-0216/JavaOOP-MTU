@@ -47,9 +47,12 @@ public class Employee {
 
     @Override
     public String toString() {
+        String insuranceDet;
+        if (insurance == null)insuranceDet = "No insurance details";
+        else insuranceDet = getInsurance().toString();
         return "Name: " + name +
                 "\nID: " + id +
                 "\nAddress: \n\t" + address +
-                "\nInsurance: \n\t" + insurance;
+                "\nInsurance: \n\t" + insuranceDet;
     }
 }
